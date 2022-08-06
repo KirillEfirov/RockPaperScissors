@@ -1,3 +1,6 @@
+let userspoints = 0;
+let computerspoints = 0;
+
 function getComputerChoice() {
     let ComputerChoice = Math.floor(Math.random() * 3);
 
@@ -31,14 +34,35 @@ function playRound(playerSelection, computerSelection) {
 
     if(playerSelection === computerSelection) {
         console.log("Ladies and gentlemen, we have a draw!");
+        userspoints++;
+        computerspoints++;
     }
     else if(playerSelection === "PAPER" && computerSelection === "ROCK"    ||
             playerSelection === "ROCK" && computerSelection === "SCISSORS" ||
             playerSelection === "SCISSORS" && computerSelection === "PAPER") {
                 console.log("Congratulations! You are a winner!");
+                userspoints++;
             }
     else {
             console.log("So sorry! You are a loser!");
+            computerspoints++;
          }
 } 
 
+function game() {
+    for(let i = 0; i < 5; i++) {
+        playRound();
+    }
+
+    if(userspoints === computerspoints) {
+        alert("DRAW");
+    } 
+    else if(userspoints > computerspoints) {
+        alert("ABSOLUTE WINNER");
+    }
+    else {
+        alert("ABSOLUTE LOOSER");
+    }
+}
+
+game();
