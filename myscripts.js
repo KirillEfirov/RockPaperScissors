@@ -67,7 +67,7 @@ rock.addEventListener('click', () => {
         container.removeChild(thirdButton);
     }
 });
-
+rock.addEventListener('click', result);
 
 const paper = document.querySelector('.Paper');
 paper.addEventListener('click', () => {
@@ -120,6 +120,7 @@ paper.addEventListener('click', () => {
         container.removeChild(thirdButton);  
     }
 });
+paper.addEventListener('click', result);
 
 const scissors = document.querySelector('.Scissors');
 scissors.addEventListener('click', () => {
@@ -172,18 +173,33 @@ scissors.addEventListener('click', () => {
         container.removeChild(thirdButton);  
     }
 });
+scissors.addEventListener('click', result);
+
+
+
 
 function checkScore() {
     if(user === 5 && computer === 5) {
         console.log('draw');
-        return user;
+        return 'DRAW';
     }
     else if(user === 5 && computer !== 5) {
         console.log('You are a winner!');
-        return user;
+        return 'You are a winner!';
     }
     else if(user !== 5 && computer === 5) {
         console.log('You are a loser!');
-        return computer;
+        return 'You are a loser!';
+    }
+}
+function result() {
+    if(user === 5 || computer === 5) {
+        let container = document.querySelector('.containerForButoons');
+       
+        let afterrmv = document.createElement('div');
+        afterrmv.classList.add('resultOfGame');
+        afterrmv.textContent = checkScore();
+
+        container.appendChild(afterrmv);
     }
 }
