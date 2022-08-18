@@ -1,5 +1,5 @@
-let userspoints = 0;
-let computerspoints = 0;
+let user = 0;
+let computer = 0;
 
 function getComputerChoice() {
     let ComputerChoice = Math.floor(Math.random() * 3);
@@ -15,54 +15,46 @@ function getComputerChoice() {
     }
 }
 
-function playRound(playerSelection, computerSelection) {
+const rock = document.querySelector('.Rock');
 
-    playerSelection = window.prompt("What's your choice?"); 
-    playerSelection = playerSelection.toUpperCase();
+rock.addEventListener('click', () => {
 
-    while(playerSelection !== "ROCK"  && 
-          playerSelection !== "PAPER" &&
-          playerSelection !== "SCISSORS") {
-            playerSelection = window.prompt("What's your choice?"); 
-            playerSelection = playerSelection.toUpperCase();
+    let computerSelection = getComputerChoice();
+    console.log('computer choice: ' + computerSelection);
+
+    if(computerSelection === "ROCK") {
+        user++;
+        computer++;
+
+        let changeScore = document.querySelector('.Score');
+        let playerScore = document.querySelector('.playerScore');
+        let computerScore = document.querySelector('.computerScore');
+        
+        let oldUserScore = document.createElement('div');
+        oldUserScore.classList.add('playerScore');
+        oldUserScore.textContent = user;
+
+        changeScore.replaceChild(oldUserScore, playerScore);
     }
+});
 
-    console.log(playerSelection);
 
-    computerSelection = getComputerChoice();
-    console.log(computerSelection);
 
-    if(playerSelection === computerSelection) {
-        console.log("Ladies and gentlemen, we have a draw!");
-        userspoints++;
-        computerspoints++;
-    }
-    else if(playerSelection === "PAPER" && computerSelection === "ROCK"    ||
-            playerSelection === "ROCK" && computerSelection === "SCISSORS" ||
-            playerSelection === "SCISSORS" && computerSelection === "PAPER") {
-                console.log("Congratulations! You are a winner!");
-                userspoints++;
-            }
-    else {
-            console.log("So sorry! You are a loser!");
-            computerspoints++;
-         }
-} 
 
-function game() {
-    for(let i = 0; i < 5; i++) {
-        playRound();
-    }
 
-    if(userspoints === computerspoints) {
-        alert("DRAW");
-    } 
-    else if(userspoints > computerspoints) {
-        alert("ABSOLUTE WINNER");
-    }
-    else {
-        alert("ABSOLUTE LOOSER");
-    }
-}
 
-game();
+
+
+
+
+
+
+
+
+
+
+/*const paper = document.querySelector('.Paper');
+paper.addEventListener('click', () => console.log('paper'));
+
+const scissors = document.querySelector('.Scissors');
+scissors.addEventListener('click', () => console.log('scissors'));*/
