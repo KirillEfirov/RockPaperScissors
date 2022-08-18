@@ -16,7 +16,6 @@ function getComputerChoice() {
 }
 
 const rock = document.querySelector('.Rock');
-
 rock.addEventListener('click', () => {
 
     let computerSelection = getComputerChoice();
@@ -65,9 +64,10 @@ rock.addEventListener('click', () => {
         let thirdButton = document.querySelector('.Scissors');
         container.removeChild(firstButton);  
         container.removeChild(secondButton);  
-        container.removeChild(thirdButton);  
+        container.removeChild(thirdButton);
     }
 });
+
 
 const paper = document.querySelector('.Paper');
 paper.addEventListener('click', () => {
