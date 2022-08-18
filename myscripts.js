@@ -33,8 +33,21 @@ rock.addEventListener('click', () => {
         let oldUserScore = document.createElement('div');
         oldUserScore.classList.add('playerScore');
         oldUserScore.textContent = user;
-
         changeScore.replaceChild(oldUserScore, playerScore);
+
+        let oldCompScore = document.createElement('div');
+        oldCompScore.classList.add('computerScore');
+        oldCompScore.textContent = computer;
+        changeScore.replaceChild(oldCompScore, computerScore);
+    }
+    else if(computerSelection === "PAPER") {
+        computer++;
+        let changeScore = document.querySelector('.Score');
+        let computerScore = document.querySelector('.computerScore');
+        let oldCompScore = document.createElement('div');
+        oldCompScore.classList.add('computerScore');
+        oldCompScore.textContent = computer;
+        changeScore.replaceChild(oldCompScore, computerScore);
     }
 });
 
