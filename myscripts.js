@@ -22,13 +22,13 @@ rock.addEventListener('click', () => {
     let computerSelection = getComputerChoice();
     console.log('computer choice: ' + computerSelection);
 
+    let changeScore = document.querySelector('.Score');
+        let playerScore = document.querySelector('.playerScore');
+        let computerScore = document.querySelector('.computerScore');
+
     if(computerSelection === "ROCK") {
         user++;
         computer++;
-
-        let changeScore = document.querySelector('.Score');
-        let playerScore = document.querySelector('.playerScore');
-        let computerScore = document.querySelector('.computerScore');
         
         let oldUserScore = document.createElement('div');
         oldUserScore.classList.add('playerScore');
@@ -42,12 +42,17 @@ rock.addEventListener('click', () => {
     }
     else if(computerSelection === "PAPER") {
         computer++;
-        let changeScore = document.querySelector('.Score');
-        let computerScore = document.querySelector('.computerScore');
         let oldCompScore = document.createElement('div');
         oldCompScore.classList.add('computerScore');
         oldCompScore.textContent = computer;
         changeScore.replaceChild(oldCompScore, computerScore);
+    }
+    else {
+        user++;
+        let oldUserScore = document.createElement('div');
+        oldUserScore.classList.add('playerScore');
+        oldUserScore.textContent = user;
+        changeScore.replaceChild(oldUserScore, playerScore);
     }
 });
 
