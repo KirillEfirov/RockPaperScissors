@@ -15,7 +15,9 @@ function getComputerChoice() {
     }
 }
 
-const rock = document.querySelector('.Rock');
+
+/*************************************************** */
+let rock = document.querySelector('.Rock');
 rock.addEventListener('click', () => {
 
     let computerSelection = getComputerChoice();
@@ -56,20 +58,13 @@ rock.addEventListener('click', () => {
 
     checkScore();
 });
-rock.addEventListener('click', () => {
-    if(user === 5 || computer === 5) {
-        let container = document.querySelector('.containerForButoons');
-        let firstButton = document.querySelector('.Rock'); 
-        let secondButton = document.querySelector('.Paper');
-        let thirdButton = document.querySelector('.Scissors');
-        container.removeChild(firstButton);  
-        container.removeChild(secondButton);  
-        container.removeChild(thirdButton);
-    }
-});
+rock.addEventListener('click', removeButtons);
 rock.addEventListener('click', result);
+rock.addEventListener('click', restart);
 
-const paper = document.querySelector('.Paper');
+
+/****************************************************** */
+let paper = document.querySelector('.Paper');
 paper.addEventListener('click', () => {
     let computerSelection = getComputerChoice();
     console.log('computer choice: ' + computerSelection);
@@ -109,20 +104,13 @@ paper.addEventListener('click', () => {
 
     checkScore();
 });
-paper.addEventListener('click', () => {
-    if(user === 5 || computer === 5) {
-        let container = document.querySelector('.containerForButoons');
-        let firstButton = document.querySelector('.Rock'); 
-        let secondButton = document.querySelector('.Paper');
-        let thirdButton = document.querySelector('.Scissors');
-        container.removeChild(firstButton);  
-        container.removeChild(secondButton);  
-        container.removeChild(thirdButton);  
-    }
-});
+paper.addEventListener('click', removeButtons);
 paper.addEventListener('click', result);
+paper.addEventListener('click', restart);
 
-const scissors = document.querySelector('.Scissors');
+
+/******************************************************* */
+let scissors = document.querySelector('.Scissors');
 scissors.addEventListener('click', () => {
     let computerSelection = getComputerChoice();
     console.log('computer choice: ' + computerSelection);
@@ -162,33 +150,29 @@ scissors.addEventListener('click', () => {
 
     checkScore();
 });
-scissors.addEventListener('click', () => {
-    if(user === 5 || computer === 5) {
-        let container = document.querySelector('.containerForButoons');
-        let firstButton = document.querySelector('.Rock'); 
-        let secondButton = document.querySelector('.Paper');
-        let thirdButton = document.querySelector('.Scissors');
-        container.removeChild(firstButton);  
-        container.removeChild(secondButton);  
-        container.removeChild(thirdButton);  
-    }
-});
+scissors.addEventListener('click', removeButtons);
 scissors.addEventListener('click', result);
-
+scissors.addEventListener('click', restart);
 
 
 
 function checkScore() {
     if(user === 5 && computer === 5) {
         console.log('draw');
+        /*user = 0;
+        computer = 0;*/
         return 'DRAW';
     }
     else if(user === 5 && computer !== 5) {
         console.log('You are a winner!');
+        /*user = 0;
+        computer = 0;*/
         return 'You are a winner!';
     }
     else if(user !== 5 && computer === 5) {
         console.log('You are a loser!');
+        /*user = 0;
+        computer = 0;*/
         return 'You are a loser!';
     }
 }
@@ -203,3 +187,69 @@ function result() {
         container.appendChild(afterrmv);
     }
 }
+function removeButtons() {
+    if(user === 5 || computer === 5) {
+        let container = document.querySelector('.containerForButoons');
+        let firstButton = document.querySelector('.Rock'); 
+        let secondButton = document.querySelector('.Paper');
+        let thirdButton = document.querySelector('.Scissors');
+        container.removeChild(firstButton);  
+        container.removeChild(secondButton);  
+        container.removeChild(thirdButton);  
+    }
+}
+function restart() {
+    if(user === 5 || computer === 5) {
+        const boxForRestart = document.querySelector('.boxForRestart');
+        const restartButton = document.createElement('button');
+        restartButton.classList.add('restartButton');
+        restartButton.textContent = 'Restart';
+        boxForRestart.appendChild(restartButton);
+
+
+
+
+        /*let renewScreen = document.querySelector('.restartButton');
+        renewScreen.addEventListener('click', () => {
+
+            user = 0;
+            computer = 0;
+
+            let container = document.querySelector('.containerForButoons');
+            let resultOfGame = document.querySelector('.resultOfGame');
+            container.removeChild(resultOfGame);
+
+            let firstButton = document.createElement('button');
+            firstButton.classList.add('Rock');
+            firstButton.textContent = 'Rock';
+            let secondButton = document.createElement('button');
+            secondButton.classList.add('Paper');
+            secondButton.textContent = 'Paper';
+            let thirdButton = document.createElement('button');
+            thirdButton.classList.add('Scissors');
+            thirdButton.textContent = 'Scissors';
+
+
+            container.appendChild(firstButton);
+            container.appendChild(secondButton);
+            container.appendChild(thirdButton);
+
+
+
+            let changeScore = document.querySelector('.Score');
+            let playerScore = document.querySelector('.playerScore');
+            let computerScore = document.querySelector('.computerScore');
+
+            let oldUserScore = document.createElement('div');
+            let oldCompScore = document.createElement('div');
+            oldCompScore.classList.add('computerScore');
+            oldCompScore.textContent = computer;
+            oldUserScore.classList.add('playerScore');
+            oldUserScore.textContent = user;
+
+            changeScore.replaceChild(oldCompScore, computerScore);
+            changeScore.replaceChild(oldUserScore, playerScore);
+        });*/
+    }
+}
+
