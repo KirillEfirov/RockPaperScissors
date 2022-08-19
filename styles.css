@@ -10,8 +10,9 @@
     align-items: center;
     gap: 10px;
     /*border: 2px solid red;*/
-    height: 750px;
-    margin-top: 50px;
+    height: 100px;
+    margin-top: 300px;
+    margin-bottom: 75px;
 }
 
 button {
@@ -23,6 +24,20 @@ button {
 .Score {
     display: flex;
     flex-direction: row;
-    gap: 200px;
+    gap: 300px;
     justify-content: center;
+    /*border: 1px solid red;*/
+}
+
+.Score div {
+    /*border: 2px solid green;*/
+}
+
+.boxForRestart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+    height: 200px;
+    /*border: 1px solid red;*/
 }
