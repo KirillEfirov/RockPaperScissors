@@ -239,52 +239,10 @@ function restart() {
             oldCompScore.textContent = computer;
             renewScore.replaceChild(oldCompScore, computerScore);
 
-            /*let rmvrestart = document.querySelector('.');*/
-            
+            let rmvrestart = document.querySelector('.boxForRestart');
+            let restartButton = document.querySelector('.restartButton');
+            rmvrestart.removeChild(restartButton);
         });
-
-
-        /*let renewScreen = document.querySelector('.restartButton');
-        renewScreen.addEventListener('click', () => {
-
-            user = 0;
-            computer = 0;
-
-            let container = document.querySelector('.containerForButoons');
-            let resultOfGame = document.querySelector('.resultOfGame');
-            container.removeChild(resultOfGame);
-
-            let firstButton = document.createElement('button');
-            firstButton.classList.add('Rock');
-            firstButton.textContent = 'Rock';
-            let secondButton = document.createElement('button');
-            secondButton.classList.add('Paper');
-            secondButton.textContent = 'Paper';
-            let thirdButton = document.createElement('button');
-            thirdButton.classList.add('Scissors');
-            thirdButton.textContent = 'Scissors';
-
-
-            container.appendChild(firstButton);
-            container.appendChild(secondButton);
-            container.appendChild(thirdButton);
-
-
-
-            let changeScore = document.querySelector('.Score');
-            let playerScore = document.querySelector('.playerScore');
-            let computerScore = document.querySelector('.computerScore');
-
-            let oldUserScore = document.createElement('div');
-            let oldCompScore = document.createElement('div');
-            oldCompScore.classList.add('computerScore');
-            oldCompScore.textContent = computer;
-            oldUserScore.classList.add('playerScore');
-            oldUserScore.textContent = user;
-
-            changeScore.replaceChild(oldCompScore, computerScore);
-            changeScore.replaceChild(oldUserScore, playerScore);
-        });*/
     }
 }
 
