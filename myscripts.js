@@ -15,7 +15,8 @@ function getComputerChoice() {
     }
 }
 
-
+let rememberCompScore;
+let rememberUserScore;
 /*************************************************** */
 let rock = document.querySelector('.Rock');
 rock.addEventListener('click', () => {
@@ -223,6 +224,20 @@ function restart() {
 
             user = 0;
             computer = 0;
+
+            let renewScore = document.querySelector('.Score');
+            let playerScore = document.querySelector('.playerScore');
+            let computerScore = document.querySelector('.computerScore');
+
+            let oldUserScore = document.createElement('div');
+            oldUserScore.classList.add('playerScore');
+            oldUserScore.textContent = user;
+            renewScore.replaceChild(oldUserScore, playerScore);
+
+            let oldCompScore = document.createElement('div');
+            oldCompScore.classList.add('computerScore');
+            oldCompScore.textContent = computer;
+            renewScore.replaceChild(oldCompScore, computerScore);
 
             /*let rmvrestart = document.querySelector('.');*/
             
