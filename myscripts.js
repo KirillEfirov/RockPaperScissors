@@ -187,15 +187,19 @@ function result() {
         container.appendChild(afterrmv);
     }
 }
+
+let remember1;
+let remember2;
+let remember3;
 function removeButtons() {
     if(user === 5 || computer === 5) {
         let container = document.querySelector('.containerForButoons');
         let firstButton = document.querySelector('.Rock'); 
         let secondButton = document.querySelector('.Paper');
         let thirdButton = document.querySelector('.Scissors');
-        container.removeChild(firstButton);  
-        container.removeChild(secondButton);  
-        container.removeChild(thirdButton);  
+        remember1 = container.removeChild(firstButton);  
+        remember2 = container.removeChild(secondButton);  
+        remember3 = container.removeChild(thirdButton);  
     }
 }
 function restart() {
@@ -207,6 +211,22 @@ function restart() {
         boxForRestart.appendChild(restartButton);
 
 
+        const renewScreen = document.querySelector('.restartButton');
+        renewScreen.addEventListener('click', () => {
+            let containerForButoons = document.querySelector('.containerForButoons');
+            let rmvresult = document.querySelector('.resultOfGame');
+            containerForButoons.removeChild(rmvresult);
+
+            containerForButoons.appendChild(remember1);
+            containerForButoons.appendChild(remember2);
+            containerForButoons.appendChild(remember3);
+
+            user = 0;
+            computer = 0;
+
+            /*let rmvrestart = document.querySelector('.');*/
+            
+        });
 
 
         /*let renewScreen = document.querySelector('.restartButton');
